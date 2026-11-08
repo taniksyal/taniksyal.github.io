@@ -1,0 +1,23 @@
+name: Rename tanik-syal-music.html to index.html
+
+on:
+  push:
+    paths:
+      - .github/workflows/rename-index.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  rename:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Rename tanik-syal-music.html to index.html
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git mv -f tanik-syal-music.html index.html
+          git commit -m "Replace index.html with fresh export"
+          git push
