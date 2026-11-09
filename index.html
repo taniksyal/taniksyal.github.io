@@ -882,9 +882,8 @@ footer.site ul a:hover{color:var(--gold-bright)}
         <p>A <strong>$150 deposit</strong> is due when you book, and it is applied to your total, so it comes off your final balance rather than being an extra charge. The balance is due at the event, and you can pay it by:</p>
         <ul>
           <li><strong>Cash</strong> (Preferred)</li>
-          <li><strong>Zelle</strong> to taniksyal@gmail.com, with no fee</li>
-          <li><strong>Venmo</strong> (@taniksyal)</li>
-          <li><strong>Venmo</strong> (@TaniusCreations), with a 2% fee</li>
+          <li><strong>Zelle</strong></li>
+          <li><strong>Venmo</strong></li>
         </ul>
       </div>
       <div class="term">
@@ -1487,7 +1486,7 @@ function videoCard(v) {
   var safeTitle = v.title.replace(/"/g, "&quot;");
   card.innerHTML =
     '<button class="vthumb" type="button" aria-label="Play video: ' + safeTitle + '">' +
-      '<img class="vimg" src="assets/thumb-' + v.id + '.jpg" alt="' + safeTitle + ' - video thumbnail" />' +
+      '<img class="vimg" src="assets/thumb-' + v.id + '.jpg" alt="' + safeTitle + ' - video thumbnail" onerror="if(this.dataset.fb){this.remove();}else{this.dataset.fb=\'1\';this.src=\'https://i.ytimg.com/vi/' + v.id + '/hqdefault.jpg\';}" />' +
       '<span class="shade"></span>' +
       '<span class="play"><svg width="24" height="24" viewBox="0 0 24 24" fill="#f5e3ac"><path d="M7 4.5v15l13-7.5z"/></svg></span>' +
     '</button>' +
