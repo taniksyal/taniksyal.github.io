@@ -213,7 +213,7 @@ main:focus{outline:none;box-shadow:none}
 /* ---------- Header ---------- */
 header.site{position:fixed;inset:0 0 auto 0;z-index:60;background:rgba(10,8,5,.97);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 .header-in{display:flex;align-items:center;gap:16px;max-width:1180px;margin:0 auto;padding:10px 20px}
-.brand{display:flex;align-items:center;gap:13px;text-decoration:none;min-width:0}
+.brand{display:flex;align-items:center;gap:13px;text-decoration:none;min-width:0;flex:none}
 /* Logo: the coin PNG is transparent and cropped tight to the coin, so no
    background is painted behind it - no black disc or ring in any placement */
 .brand img{width:52px;height:52px;border-radius:50%;background:transparent;flex:none}
@@ -606,6 +606,14 @@ footer.site ul a:hover{color:var(--gold-bright)}
 .lb .cap{position:absolute;bottom:20px;left:0;right:0;text-align:center;color:var(--ink-dim);font-size:14px;padding:0 20px}
 
 /* ---------- Responsive ---------- */
+/* The full desktop nav, with the two-line Terms of Engagement and
+   Playlist Request links, only fits beside the brand at wider widths.
+   Below 1240px the burger menu takes over instead, so the nav links
+   can never crowd into the brand name and tagline */
+@media (max-width:1240px){
+  nav.main{display:none}
+  .burger{display:flex}
+}
 @media (max-width:1020px){
   nav.main{display:none}
   .burger{display:flex}
@@ -661,8 +669,8 @@ footer.site ul a:hover{color:var(--gold-bright)}
       <a href="#pricing">Pricing</a>
       <a href="#terms" class="terms-link"><span>Terms of</span><span>Engagement</span></a>
       <a href="#reviews">Reviews</a>
-      <a href="#live-request">Live Request</a>
-      <a href="#playlist">Playlist</a>
+      <a href="#live-request" class="terms-link"><span>Live</span><span>Request</span></a>
+      <a href="#playlist" class="terms-link"><span>Playlist</span><span>Request</span></a>
       <a href="#contact" class="book" data-ga="book_click|Book Now - Nav">Book Now</a>
     </nav>
   </div>
@@ -683,7 +691,7 @@ footer.site ul a:hover{color:var(--gold-bright)}
     <a href="#terms">Terms of Engagement</a>
     <a href="#reviews">Reviews</a>
     <a href="#live-request">Live Song Request</a>
-    <a href="#playlist">Your Event Playlist</a>
+    <a href="#playlist">Playlist Request</a>
     <a href="#contact">Contact / Book Now</a>
   </nav>
 </header>
@@ -1048,12 +1056,12 @@ footer.site ul a:hover{color:var(--gold-bright)}
   </div>
 </section>
 
-<!-- ================= YOUR EVENT PLAYLIST (NATIVE) ================= -->
+<!-- ================= PLAYLIST REQUEST (NATIVE) ================= -->
 <section class="page" id="playlist">
   <div class="wrap">
     <div class="sec-head">
-      <p class="kicker">Your Event Playlist</p>
-      <h2>Build your playlist</h2>
+      <p class="kicker">Build your playlist</p>
+      <h2>Playlist Request</h2>
       <p>Booking ahead? Choose up to 20 songs from my catalog so your night sounds exactly like you - right here on this page.</p>
     </div>
     <div class="song-panel" id="playlistPanel">
@@ -1425,7 +1433,7 @@ function doPost(e) {
           <li><a href="#terms">Terms of Engagement</a></li>
           <li><a href="#contact">Contact / Book Now</a></li>
           <li><a href="#live-request">Live Song Request</a></li>
-          <li><a href="#playlist">Your Event Playlist</a></li>
+          <li><a href="#playlist">Playlist Request</a></li>
           <li><a href="https://g.page/r/CS5u2Q4e8toqECE/review" target="_blank" rel="noopener" data-ga="review_click|Leave a Google Review - Footer">Leave a Google Review</a></li>
         </ul>
       </div>
