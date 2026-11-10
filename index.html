@@ -364,7 +364,8 @@ nav.main a.terms-link span{display:block}
 
 /* ---------- Pricing ---------- */
 .price-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-bottom:22px}
-.pcard{border-radius:18px;padding:34px 30px;position:relative}
+.pcard{border-radius:18px;padding:34px 30px;position:relative;display:flex;flex-direction:column}
+.pcard .pcard-cta{margin-top:auto;padding-top:24px}
 .pcard.sing{background:var(--coal);border:1px solid var(--line)}
 .pcard.dj{background:linear-gradient(165deg,#241b08,#171106);border:1px solid var(--gold-deep)}
 .pcard .ptag{font-family:var(--font-name);font-size:11px;font-weight:800;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin:0 0 10px}
@@ -448,6 +449,7 @@ nav.main a.terms-link span{display:block}
 .catalog-row .c-name{font-weight:600;font-size:15.5px;display:block;color:var(--ink)}
 .catalog-row .c-meta{display:block;font-size:13px;color:var(--ink-faint)}
 .count-badge{font-family:var(--font-name);font-weight:800;font-size:12px;letter-spacing:.08em;background:var(--btn-grad);color:var(--btn-ink);border-radius:999px;padding:5px 13px;white-space:nowrap}
+.add-feedback{min-height:24px;margin:10px 0 0;font-size:14.5px;font-weight:600;color:var(--gold-pale)}
 .sel-list{display:grid;gap:8px}
 .sel-row{display:flex;gap:12px;align-items:center;background:#0d0a06;border:1px solid var(--line);border-radius:10px;padding:10px 12px}
 .sel-num{flex:none;width:24px;height:24px;border-radius:50%;background:var(--btn-grad);color:var(--btn-ink);font-family:var(--font-name);font-weight:800;font-size:12px;display:flex;align-items:center;justify-content:center}
@@ -742,7 +744,7 @@ footer.site ul a:hover{color:var(--gold-bright)}
         <ul class="facts">
           <li>
             <span class="fi"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg></span>
-            <span><b>Competition stage</b><span>Final performance at International Indian Icon - Season 2 and Singing Superstar - Season 1, and finalist at NRI Antakshari in Milpitas, California in 2024.</span></span>
+            <span><b>Competition stage</b><span>Final performance at International Indian Icon - Season 2 and Singing Superstar - Season 1, finalist at NRI Antakshari in Milpitas, California in 2024, 1st runner-up at TheArtiste - Season 2, and semi-finalist at Meri Aawaz Suno - Season 3.</span></span>
           </li>
           <li>
             <span class="fi"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></span>
@@ -828,7 +830,7 @@ footer.site ul a:hover{color:var(--gold-bright)}
         <p class="amount">$450</p>
         <p class="per">Up to 2 hours of live singing included</p>
         <p class="desc">Two full hours of live Bollywood singing for your dinner, celebration or private event - the songs your guests know and love, performed live. Need a longer show? Extra time can be added, see below.</p>
-        <div style="margin-top:24px"><a class="btn btn-outline" href="#contact" data-ga="book_click|Book Live Singing - Pricing">Book Live Singing</a></div>
+        <div class="pcard-cta"><a class="btn btn-outline" href="#contact" data-ga="book_click|Book Live Singing - Pricing">Book Live Singing</a></div>
       </div>
       <div class="pcard dj">
         <span class="pop">Most booked</span>
@@ -837,7 +839,7 @@ footer.site ul a:hover{color:var(--gold-bright)}
         <p class="amount">$600</p>
         <p class="per">Up to 2 total hours of nonstop music included - mix and match</p>
         <p class="desc">Includes up to 2 total hours of nonstop music. You can mix and match however you like! For example: 1 hour of live singing for dinner, and 1 hour of DJ dance music to end the night. One booking. Twice the show. Need a longer show? Extra time can be added, see below.</p>
-        <div style="margin-top:24px"><a class="btn btn-gold" href="#contact" data-ga="book_click|Book Singing + DJ - Pricing">Book Singing + DJ</a></div>
+        <div class="pcard-cta"><a class="btn btn-gold" href="#contact" data-ga="book_click|Book Singing + DJ - Pricing">Book Singing + DJ</a></div>
       </div>
     </div>
     <div class="custom-strip">
@@ -996,7 +998,7 @@ footer.site ul a:hover{color:var(--gold-bright)}
     </div>
     <div class="more-reviews">
       <p><strong>These are just a few highlights.</strong> There are more reviews from event hosts on my Google Business Profile - take a look at what they say there too.</p>
-      <a class="btn btn-gold" href="https://g.page/r/CS5u2Q4e8toqECE/review" target="_blank" rel="noopener" data-ga="review_click|See more reviews on Google">See more reviews on Google</a>
+      <a class="btn btn-gold" href="https://g.page/r/CS5u2Q4e8toqECE" target="_blank" rel="noopener" data-ga="review_click|See more reviews on Google">See more reviews on Google</a>
     </div>
   </div>
 </section>
@@ -1047,8 +1049,6 @@ footer.site ul a:hover{color:var(--gold-bright)}
       <div class="bsummary" id="liveSummary" aria-label="Summary of your song request"></div>
       <div class="bthanks-actions">
         <button class="btn btn-gold" type="button" id="liveAgain">Request Another Song</button>
-        <button class="btn btn-outline" type="button" id="liveCopy">Copy request</button>
-        <a class="btn btn-outline" id="liveToolLink" href="https://script.google.com/macros/s/AKfycbwIwu4SAJu-fZqUEVVJGEbT55ntD_v4D0HQZTbrigYszE7fvHSbZQaHWtPq4zOX1du3wg/exec" target="_blank" rel="noopener">Open the original request tool</a>
       </div>
       <p style="font-size:14px;margin-top:14px" id="liveThanksNote"></p>
     </div>
@@ -1069,7 +1069,7 @@ footer.site ul a:hover{color:var(--gold-bright)}
       <div id="playlistForm">
         <div class="tool-subhead" style="margin-top:0">
           <h3>Song Catalog</h3>
-          <span class="count-badge" id="pl-count-1">0/20</span>
+          <span class="count-badge" id="pl-count-1">0/20 songs added</span>
         </div>
         <div class="bfield">
           <label for="pl-search">Search the catalog</label>
@@ -1087,10 +1087,11 @@ footer.site ul a:hover{color:var(--gold-bright)}
         </div>
         <div class="catalog-list" id="pl-catalog" aria-label="Song catalog"></div>
         <p class="more-row" id="pl-more" hidden></p>
+        <p class="add-feedback" id="pl-feedback" aria-live="polite"></p>
 
         <div class="tool-subhead">
           <h3>Your Selected Songs</h3>
-          <span class="count-badge" id="pl-count-2">0/20</span>
+          <span class="count-badge" id="pl-count-2">0/20 songs added</span>
         </div>
         <div class="sel-list" id="pl-selected"></div>
 
@@ -1123,8 +1124,6 @@ footer.site ul a:hover{color:var(--gold-bright)}
       <div class="bsummary" id="plSummary" aria-label="Summary of your song selection"></div>
       <div class="bthanks-actions">
         <button class="btn btn-gold" type="button" id="plAgain">Build Another Playlist</button>
-        <button class="btn btn-outline" type="button" id="plCopy">Copy selection</button>
-        <a class="btn btn-outline" id="plToolLink" href="https://script.google.com/macros/s/AKfycbzUzVaSM31aEUcSYmOmf213wxlquYRjLwx4FEVffvq5QzTpvZPGc-vzlFlGGZjNxaqB/exec" target="_blank" rel="noopener">Open the original playlist tool</a>
       </div>
       <p style="font-size:14px;margin-top:14px" id="plThanksNote"></p>
     </div>
@@ -2001,6 +2000,10 @@ function lrSummaryText(d) {
   lines.push("Don't see your favorite: " + (d.freeForm || "None"));
   return lines.join("\n");
 }
+function scrollPageTop() {
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  window.scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" });
+}
 function lrShowThanks(sentLive, summary) {
   document.getElementById("liveSummary").textContent = summary;
   var note = document.getElementById("liveThanksNote");
@@ -2010,12 +2013,12 @@ function lrShowThanks(sentLive, summary) {
     note.textContent = "";
   } else {
     document.getElementById("liveThanksTitle").textContent = "Your request is ready";
-    document.getElementById("liveThanksText").textContent = "One last step: the live request list only accepts songs sent through the request tool itself, so open it with the button below and add your song there - it takes a few seconds, and your request above is ready to copy if you need it.";
-    note.textContent = "Nothing was sent yet - your request reaches Tanik once you send it in the request tool.";
+    document.getElementById("liveThanksText").textContent = "Your song request is ready - the details are in the summary above.";
+    note.textContent = "This form could not send your request directly, so please show this summary to Tanik at the show and he will add it to the list.";
   }
   document.getElementById("livePanel").hidden = true;
   document.getElementById("liveThanks").hidden = false;
-  document.getElementById("liveThanks").scrollIntoView({ behavior: "smooth", block: "start" });
+  scrollPageTop();
 }
 function lrSend() {
   lrShowMsg("", false);
@@ -2047,7 +2050,7 @@ function lrSend() {
   }).catch(function () {
     lrEls.send.disabled = false;
     lrEls.send.textContent = "Send Request";
-    lrShowMsg("Sending did not go through. Please try again, or use the original request tool linked below the form.", true);
+    lrShowMsg("Sending did not go through. Please try again in a moment.", true);
   });
 }
 function lrInit() {
@@ -2072,9 +2075,6 @@ function lrInit() {
   lrEls.search.addEventListener("input", lrRenderResults);
   document.getElementById("lr-clear").addEventListener("click", lrClearSelection);
   lrEls.send.addEventListener("click", lrSend);
-  document.getElementById("liveCopy").addEventListener("click", function () {
-    tsCopyText(document.getElementById("liveSummary").textContent, this);
-  });
   document.getElementById("liveAgain").addEventListener("click", function () {
     lrEls.name.value = "";
     lrEls.free.value = "";
@@ -2144,8 +2144,8 @@ function plRenderCatalog() {
 }
 function plRenderSelected() {
   var n = plSelected.size;
-  plEls.count1.textContent = n + "/" + PL_MAX;
-  plEls.count2.textContent = n + "/" + PL_MAX;
+  plEls.count1.textContent = n + "/" + PL_MAX + " songs added";
+  plEls.count2.textContent = n + "/" + PL_MAX + " songs added";
   var box = plEls.selected;
   box.innerHTML = "";
   if (!n) {
@@ -2169,13 +2169,24 @@ function plRenderSelected() {
       plSelected.delete(s.id);
       plRenderSelected();
       plRenderCatalog();
+      plSetFeedback("removed", s);
     });
     row.appendChild(x);
     box.appendChild(row);
   });
 }
+function plSetFeedback(action, s) {
+  if (!plEls.feedback) return;
+  var n = plSelected.size;
+  var left = PL_MAX - n;
+  var count = n + "/" + PL_MAX + " songs added, " + left + (left === 1 ? " spot" : " spots") + " left.";
+  if (action === "added") plEls.feedback.textContent = "Added \u201c" + s.song + "\u201d - " + count;
+  else if (action === "removed") plEls.feedback.textContent = "Removed \u201c" + s.song + "\u201d - " + count;
+  else plEls.feedback.textContent = "";
+}
 function plToggle(s) {
   plShowMsg("", false);
+  var added = false;
   if (plSelected.has(s.id)) {
     plSelected.delete(s.id);
   } else {
@@ -2184,9 +2195,11 @@ function plToggle(s) {
       return;
     }
     plSelected.set(s.id, s);
+    added = true;
   }
   plRenderSelected();
   plRenderCatalog();
+  plSetFeedback(added ? "added" : "removed", s);
 }
 function plShowMsg(text, isErr) {
   plEls.msg.textContent = text;
@@ -2206,12 +2219,12 @@ function plShowThanks(sentLive, summary) {
     note.textContent = "";
   } else {
     document.getElementById("plThanksTitle").textContent = "Your playlist is ready";
-    document.getElementById("plThanksText").textContent = "One last step: the playlist list only accepts selections sent through the playlist tool itself, so open it with the button below and tick the same songs there - your list above is ready to copy so you can tick them off as you go.";
-    note.textContent = "Nothing was sent yet - your playlist reaches Tanik once you send it in the playlist tool.";
+    document.getElementById("plThanksText").textContent = "Your playlist is ready - here is the summary of the songs you picked.";
+    note.textContent = "This form could not send your selection directly, so please keep this summary and share it with Tanik when you book.";
   }
   document.getElementById("playlistPanel").hidden = true;
   document.getElementById("playlistThanks").hidden = false;
-  document.getElementById("playlistThanks").scrollIntoView({ behavior: "smooth", block: "start" });
+  scrollPageTop();
 }
 function plSend() {
   plShowMsg("", false);
@@ -2237,7 +2250,7 @@ function plSend() {
   }).catch(function () {
     plEls.send.disabled = false;
     plEls.send.textContent = "Submit Song Selection";
-    plShowMsg("Submitting did not go through. Please try again, or use the original playlist tool linked below the form.", true);
+    plShowMsg("Submitting did not go through. Please try again in a moment.", true);
   });
 }
 function plInit() {
@@ -2254,6 +2267,7 @@ function plInit() {
     name: document.getElementById("pl-name"),
     email: document.getElementById("pl-email"),
     msg: document.getElementById("pl-msg"),
+    feedback: document.getElementById("pl-feedback"),
     send: document.getElementById("pl-send")
   };
   if (!plEls.search) return;
@@ -2272,9 +2286,6 @@ function plInit() {
     });
   });
   plEls.send.addEventListener("click", plSend);
-  document.getElementById("plCopy").addEventListener("click", function () {
-    tsCopyText(document.getElementById("plSummary").textContent, this);
-  });
   document.getElementById("plAgain").addEventListener("click", function () {
     plSelected.clear();
     plEls.date.value = "";
@@ -2282,6 +2293,7 @@ function plInit() {
     plEls.email.value = "";
     plEls.search.value = "";
     plShowMsg("", false);
+    plSetFeedback("", null);
     plRenderSelected();
     plRenderCatalog();
     document.getElementById("playlistThanks").hidden = true;
