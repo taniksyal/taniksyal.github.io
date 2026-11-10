@@ -1,0 +1,20 @@
+name: Rename index
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  rename:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Rename tanik-syal-music.html to index.html
+        run: |
+          git config user.name "taniksyal"
+          git config user.email "taniksyal@users.noreply.github.com"
+          git mv -f tanik-syal-music.html index.html
+          git commit -m "Rename tanik-syal-music.html to index.html"
+          git push
