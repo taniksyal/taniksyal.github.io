@@ -176,6 +176,12 @@
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--black);color:var(--ink);font-family:var(--font-body);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+/* Never let any stray wide element stretch the page past the screen:
+   that horizontal overflow is what showed the black body background as
+   a strip on the right of the cream pages on phones. The real fixes
+   for the Contact form are with the contact styles below; this is the
+   safety net so the page itself can never scroll sideways */
+html,body{overflow-x:hidden;overflow-x:clip}
 img{max-width:100%;display:block}
 a{color:var(--gold-bright)}
 h1,h2,h3{font-family:var(--font-name);line-height:1.15;margin:0}
@@ -474,7 +480,21 @@ nav.main a.terms-link span{display:block}
 @media (max-width:560px){.song-panel{padding:22px 18px}.catalog-list{max-height:440px}}
 
 /* ---------- Contact ---------- */
-.contact-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:26px;align-items:start}
+.contact-grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:26px;align-items:start}
+/* Mobile overflow fix: grid items refuse by default to shrink below
+   the widest thing inside them (min-width:auto), so one too-wide row
+   inside a card - the no-wrap social pills in the side card were the
+   culprit - stretches the whole grid column, form card included, past
+   the cream .wrap container and off the right of the phone screen.
+   Letting every level shrink to the container width keeps the form
+   card and its fields inside the same cream width as the text above */
+.contact-grid>*{min-width:0}
+.booking-panel,.bthanks,.side-card{min-width:0;max-width:100%}
+.booking-panel form,.bfield,.bfield-row>*{min-width:0}
+.bfield fieldset{min-width:0;min-inline-size:0}
+.bfield input[type="text"],.bfield input[type="email"],.bfield input[type="tel"],.bfield input[type="date"],.bfield input[type="time"],.bfield input[type="number"],.bfield textarea,.bfield select{min-width:0;max-width:100%}
+.pkg-opt{min-width:0}
+.pkg-opt span{min-width:0}
 .form-frame{background:#fff;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line)}
 .form-frame iframe{width:100%;height:880px;border:0;display:block}
 /* Native booking form - recreated from the Google Form, no iframe */
@@ -559,8 +579,15 @@ footer.site ul a:hover{color:var(--gold-bright)}
   .deploy-actions{flex-wrap:nowrap;gap:8px}
   .deploy-actions .btn{flex:1 1 0;justify-content:center;text-align:center;padding:13px 8px;font-size:11.5px;letter-spacing:.06em}
   .header-socials-in{flex-wrap:nowrap}
-  .header-socials a{padding:6px 12px 6px 10px}
-  .socials{flex-wrap:nowrap;gap:8px}
+  /* The three header pills share the row evenly and shrink to fit it,
+     like the hero buttons above, instead of forcing the row wider
+     than the phone screen */
+  .header-socials a{flex:1 1 0;min-width:0;justify-content:center;padding:6px 8px}
+  /* The Contact side-card pills must wrap, not stay on one no-wrap
+     row: at their natural width the row is wider than the card, and
+     as a grid child it dragged the whole Contact column - form card
+     included - past the right edge of the cream container */
+  .socials{flex-wrap:wrap;gap:8px}
   .socials a{padding:6px 12px 6px 10px;font-size:11px;letter-spacing:.09em;gap:7px}
 }
 
@@ -626,6 +653,9 @@ footer.site ul a:hover{color:var(--gold-bright)}
   .hero-grid{grid-template-columns:1fr;gap:36px}
   .hero-photo{max-width:460px;margin:0 auto;width:100%}
   .about-grid,.price-grid,.info-grid,.wgrid,.contact-grid{grid-template-columns:1fr}
+  /* Single-column Contact track is also capped at the container
+     width, so nothing inside a card can widen it on phones */
+  .contact-grid{grid-template-columns:minmax(0,1fr)}
   .tgrid{grid-template-columns:1fr}
   .pgrid{columns:2}
   .foot-grid{grid-template-columns:1fr 1fr}
